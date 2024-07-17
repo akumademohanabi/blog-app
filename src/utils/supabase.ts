@@ -35,8 +35,8 @@ export const insertPost = async(title:string, body:string,
     categoryId:number, eyecatchUrl:string) => {
         const {error} = await supabase.from('posts').insert({
             title, body,
-            category_Id: categoryId,
-            eyecatch_Url: eyecatchUrl
+            category_id: categoryId,
+            eyecatch_url: eyecatchUrl
         })
         return error;
  }
@@ -48,7 +48,7 @@ export const selectPosts = async ()=>{
         return data.map((post)=>({
             ...post,
             slug: post.id,
-            eyecatch:post.eyecatch_Url
+            eyecatch:post.eyecatch_url
         }))
     } else { return []; }
 }
@@ -58,8 +58,8 @@ export const selectPost = async (slug: string)=>{
     console.log(data);
     if (data && data.length ===1){
         return ({
-            ...data, slug: data[0].id,
-            eyecatch: data[0].eyecatch_Url
+            ...data[0], slug: data[0].id,
+            eyecatch: data[0].eyecatch_url
         });
     } else { return null; }
 }

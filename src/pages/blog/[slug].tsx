@@ -67,7 +67,7 @@ const DetailPage = () => {
         {post && <PostHeader post={post} />}
         </div>
             <Eyecatch  src={post ? `https://ovtgehtwuwjtslpqgzlx.supabase.co/storage/v1/object/public/thumbnails/${post.eyecatch}`
-                                 :"https://localhost/images/eyecatc.jpg"} width={568} height={288}/>
+                                 :"/images/eyecatc.jpg"} width={568} height={288}/>
             <TwoColumnLayout>
                 <div className="flex flex-col flex-1 text-base leading-8">
                     <ReactMarkdown remarkPlugins={[remarkGfm]} components={{h1: H1, p: P}}
